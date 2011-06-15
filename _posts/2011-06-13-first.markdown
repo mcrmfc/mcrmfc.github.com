@@ -7,8 +7,12 @@ categories:
 - testing 
 ---
 
-...some more information to follow...
+Hi, welcome to 'OpenSourceTester', it's a blog about testing software (primarily web apps) with free tools.  I have started this blog for a few reasons:
 
-{% highlight ruby %}
-puts "some ruby code"
-{% endhighlight %}
+1. A place for me to record and cement my thoughts on anything which has proved really useful for me or which has given me significant grief!
+2. To hopefully share some of these issues (and the resolutions) in order inspire others or save them from going through the same pain...
+3. As a scratchpad for me to try out various things on a live site (so if this looks crap in IE6...sorry...).
+
+Finally a bit about the technology behind this blog.  Doubtless [Wordpress](http://wordpress.org), [Tumblr](http://www.tumblr.com) et al are all superb blogging platforms and can produce sites which are significantly more attractive than this one.  However in part this is a learning exercise for me so I finally settled on using [Jekyll](https://github.com/mojombo/jekyll/wiki) served up by [Github Pages](http://pages.github.com/), which to name but a few has the advantages of free hosting and the ability to 'git push' posts created in your editor of choice...more about this in future posts I hope!
+
+Anyway that's more than enough for now, let's see how things progress.
