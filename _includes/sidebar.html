@@ -18,3 +18,15 @@
         </li>
     </ul>
 </div>
+<script>
+  $.getJSON("http://www.google.com/reader/public/javascript/feed%2Fhttps%3A%2F%2Fgithub.com%2Fmcrmfc.atom?callback=?",
+  {
+    format: "json"
+  },
+  function(data) {
+    $.each(data.items, function(i,item){
+      $("#sidebar ul").append("<li>" + item.title + "</li>");
+      if(i==5) return false;
+    });
+  });
+</script>
