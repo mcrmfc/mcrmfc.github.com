@@ -16,6 +16,8 @@
             </p>
         </form>
         </li>
+        <h3><a href="http://github.com/mcrmfc">GitHub</a> Activity Feed</h3>
+        <li></li>
     </ul>
 </div>
 <script>
@@ -25,7 +27,7 @@
   },
   function(data) {
     $.each(data.items, function(i,item){
-      $("#sidebar ul").append("<li>" + item.title + "</li>");
+      $("#sidebar ul").append("<li><a " + "href=\"" + item.alternate.href + "\">" + item.title + "</a></li>");
       if(i==5) return false;
     });
   });
