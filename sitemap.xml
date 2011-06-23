@@ -1,1 +1,27 @@
-_site/sitemap.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+      <loc>http://opensourcetester.co.uk/about.html</loc>
+      <lastmod>2011-06-15</lastmod>
+  </url>
+  <url>
+      <loc>http://opensourcetester.co.uk/atom.xml</loc>
+      <lastmod>2011-06-13</lastmod>
+  </url>
+  <url>
+      <loc>http://opensourcetester.co.uk/</loc>
+      <lastmod>2011-06-14</lastmod>
+  </url>
+  <url>
+      <loc>http://opensourcetester.co.uk/tags.html</loc>
+      <lastmod>2011-06-23</lastmod>
+  </url>
+  <url>
+      <loc>http://opensourcetester.co.uk/testing/cucumber/capybara/webkit/2011/06/23/capybara-webkit-centos.html</loc>
+      <lastmod>2011-06-23</lastmod>
+  </url>
+  <url>
+      <loc>http://opensourcetester.co.uk/testing/2011/06/13/first.html</loc>
+      <lastmod>2011-06-13</lastmod>
+  </url>
+</urlset>
