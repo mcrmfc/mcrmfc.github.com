@@ -51,7 +51,7 @@ module Jekyll
     #  +site+ is the global Site object.
     def generate(site)
       # Create the destination folder if necessary.
-      site_folder = site.config['destination']
+      site_folder = site.config['destination'] + '/..'
       unless File.directory?(site_folder)
         p = Pathname.new(site_folder)
         p.mkdir

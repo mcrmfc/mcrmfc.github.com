@@ -1,7 +1,7 @@
 link:   /:year/:month/:day/:title
 lsi:         false
 pygments:    true
-paginate:    20
+paginate:    10
 auto:        false
 exclude:
   - bin
