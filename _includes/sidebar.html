@@ -19,6 +19,10 @@
         <h3><a href="http://github.com/mcrmfc">GitHub</a> Activity Feed</h3>
         <li></li>
     </ul>
+    <h2>Tags</h2>
+    <p>
+    {% include tag_cloud.html %}
+    </p>
 </div>
 <script>
     $.getJSON("http://www.google.com/reader/public/javascript/feed%2Fhttps%3A%2F%2Fgithub.com%2Fmcrmfc.atom?callback=?",

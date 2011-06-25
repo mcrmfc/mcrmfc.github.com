@@ -1,3 +1,5 @@
+require 'rubygems'
+require 'bundler/setup'
 require 'ftools'
 
 namespace :tags do
@@ -53,3 +55,27 @@ title: Tags
     puts 'Done.'
   end
 end
+
+task :tag_cloud do
+  puts 'Generating tag cloud...'
+  require 'rubygems'
+  require 'jekyll'
+  include Jekyll::Filters
+
+  options = Jekyll.configuration({})
+  site = Jekyll::Site.new(options)
+  site.read_posts('')
+
+  html = ''
+  max_count = site.categories.map{|t,p| p.count}.max
+  site.categories.sort.each do |tag, posts|
+    s = posts.count
+    font_size = ((20 - 10.0*(max_count-s)/max_count)*2).to_i/2.0
+    html << "<a href=\"/tags/#{tag}\" title=\"Postings tagged #{tag}\" style=\"font-size: #{font_size}px; line-height:#{font_size}px\">#{tag}</a> "
+  end
+  File.open('_includes/tag_cloud.html', 'w+') do |file|
+    file.puts html
+  end
+  puts 'Done.'
+end
+
