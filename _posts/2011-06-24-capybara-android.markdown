@@ -15,7 +15,7 @@ The [Selenium-Webdriver](http://code.google.com/p/selenium/) project has develop
 When setting up the emulator as per the instructions on the Selenium wiki, in order to generate a list of targets you need to ensure you have actually installed the relevant SDK packages.  To do this start the Android SDK and AVD Manager:
 
 {% highlight console %}
-cd ~/android-sdk/tools/android
+~/android-sdk/tools/android
 {% endhighlight %}
 
 Which should bring up a screen similar to the one below, select 'Installed packages' and add some...then you'll have some targets to select!
@@ -38,6 +38,6 @@ Capybara.current_driver = :selenium_android
 Gotchas...
 
 1. I found that I needed to start the Webdriver server (Jetty Server) on the emulator manually i.e. open the emulator then select to view applications and select 'Webdriver'
-2. I found that if I started the actual browser manually on the emulator this prevented tests from running and I received 'End of file reached (EOFError)' errors
-3. In order to see tests running in the browser I found that you needed to have the Webdriver server application open and visible on the device emulator
-4. Lots of the functionality your used to using in Capybara may not work as expected this is due to very limited support for X-Path and CSS selectors in the Android driver...it may actually be better to use the Selenium-Webdriver gem directly.
+2. I also found that if I started the actual browser manually on the emulator this prevented tests from running and I received 'End of file reached (EOFError)' errors
+3. In order to see tests running in the browser it seemed that you needed to have the Webdriver server application open and visible on the device emulator
+4. Lots of the functionality you're used to using in Capybara may not work as expected, this is due to very limited support for X-Path and CSS selectors in the Android driver...it may actually be better to use the Selenium-Webdriver gem directly.
