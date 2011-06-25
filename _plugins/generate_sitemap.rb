@@ -15,6 +15,7 @@
 # site, and generate an entry in sitemap.xml for each one.
 
 require 'pathname'
+require 'jekyll'
 
 module Jekyll
 
