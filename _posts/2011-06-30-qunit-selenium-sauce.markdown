@@ -18,7 +18,7 @@ However, I had been using the great service provided by the folks at [SauceLabs]
 
 I had previously used a nice little project written one of the people at Sauce for running parallel Cucumber tests using Selenium-RC, which can be found [here](http://github.com/sgrove/cucumber_sauce).
 
-Note this uses the excellent [parallel](http://github.com/groser/parallel) gem to allow easy multi threading, and you may also want to check out [parallel_tests](http://github.com/groser/parallel_tests) for a super easy way of running Cucumber tests across multiple cores.
+Note this uses the excellent [parallel](http://github.com/grosser/parallel) gem to allow easy multi threading, and you may also want to check out [parallel_tests](http://github.com/grosser/parallel_tests) for a super easy way of running Cucumber tests across multiple cores.
 
 Taking [cucumber_sauce](http://github.com/sgrove/cucumber_sauce) as my starting point I added support for Selenium-Webdriver and got rid of the Cucumber overhead (no need as all we are doing is hitting a single Qunit test page).
 
