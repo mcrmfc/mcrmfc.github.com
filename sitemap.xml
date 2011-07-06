@@ -14,7 +14,11 @@
   </url>
   <url>
       <loc>http://opensourcetester.co.uk/tags.html</loc>
-      <lastmod>2011-07-01</lastmod>
+      <lastmod>2011-07-06</lastmod>
+  </url>
+  <url>
+      <loc>http://opensourcetester.co.uk/2011/07/06/selenium-grid-2</loc>
+      <lastmod>2011-07-06</lastmod>
   </url>
   <url>
       <loc>http://opensourcetester.co.uk/2011/06/30/qunit-selenium-sauce</loc>
