@@ -54,6 +54,43 @@ http://hostname:4444/grid/console
 
 **IMPORTANT** - By default the grid will start with a default set of browsers, 5 Firefox, 5 Chrome, 1 IE - you can change this configuration by supplying command line options when you start the node server, see the [Selenium Wiki](http://code.google.com/p/selenium/wiki/Grid2) for more details.
 
+Alternatively you can supply a config file in yaml format e.g.
+
+{% highlight yaml %}
+{
+"capabilities":
+        [
+                {
+                        "browserName":"firefox",
+                        "maxInstances":5
+                },
+                {
+                        "browserName":"chrome",
+                        "maxInstances":5
+                },
+                {
+                        "browserName":"internet explorer",
+                        "version":"7",
+                        "platform":"WINDOWS",
+                        "maxInstances":1
+                }
+        ],
+"configuration":
+        {
+                "cleanUpCycle":2000,
+                "timeout":30000,
+                "proxy":"org.openqa.grid.selenium.proxy.WebDriverRemoteProxy",
+                "maxSession":5,
+                "url":"http://192.168.102.130:5555/wd/hub",
+
+        }
+}
+{% endhighlight %}
+
+Note: I found that when using Windows VMWare images you need to ensure the following:
+
+1. Configure nodes with actual IP address as above (as opposed to localhost, even if running node on same machine as hub)
+2. Windows Firewall is turned off (obvious but worth mentioning)
 
 **Running Tests**
 
