@@ -87,6 +87,13 @@ Alternatively you can supply a config file in yaml format e.g.
 }
 {% endhighlight %}
 
+Then start the node as follows:
+
+
+{% highlight console %}
+java -jar selenium-server-standalone-2.0rc3.jar -role webdriver -file myconfig.json
+{% endhighlight %}
+
 Note: I found that when using Windows VMWare images you need to ensure the following:
 
 1. Configure nodes with actual IP address as above (as opposed to localhost, even if running node on same machine as hub)
