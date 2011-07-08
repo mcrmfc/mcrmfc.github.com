@@ -9,6 +9,8 @@ categories:
 - selenium 
 ---
 
+<p class="info"><strong>NOTE:</strong> this post was based on the selenium-server-standalone-2.0rc3 release, I have just tried out the 2.0 release (7/7/11) and things seem to have changed somewhat...i'll post an update when I have fathomed the configuration changes.</p> 
+
 So we finally have [Grid 2](http://code.google.com/p/selenium/wiki/Grid2), Grid 2 is a complete re-write of Selenium Grid and brings us the following features:
 
 1. Support for Selenium-Webdriver (Selenium 2)
@@ -37,11 +39,11 @@ java -jar selenium-server-standalone-2.0rc3.jar -role hub
 **To start the node server:**
 
 {% highlight console %}
-java -jar selenium-server-standalone-2.0rc3.jar -role webdriver -hub [http://localhost:4444/grid/register] -port 5555 (Webdriver)
+java -jar selenium-server-standalone-2.0rc3.jar -role webdriver -hub http://localhost:4444/grid/register -port 5555 (Webdriver)
 {% endhighlight %}
 
 {% highlight console %}
-java -jar selenium-server-standalone-2.0rc3.jar -role rc -hub [http://localhost:4444/grid/register] -port 5556 (RC)
+java -jar selenium-server-standalone-2.0rc3.jar -role rc -hub http://localhost:4444/grid/register -port 5556 (RC)
 {% endhighlight %}
 
 Note: the port numbers are not particularly significant but if you want to run Webdriver and RC nodes they must run on different ports.
@@ -91,7 +93,7 @@ Then start the node as follows:
 
 
 {% highlight console %}
-java -jar selenium-server-standalone-2.0rc3.jar -role webdriver -file myconfig.json
+java -jar selenium-server-standalone-2.0rc3.jar -role webdriver -file myconfig.json -hub http://localhost:4444/grid/register
 {% endhighlight %}
 
 Note: I found that when using Windows VMWare images you need to ensure the following:
