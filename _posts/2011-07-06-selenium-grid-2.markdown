@@ -56,9 +56,9 @@ http://hostname:4444/grid/console
 
 **IMPORTANT** - By default the grid will start with a default set of browsers, 5 Firefox, 5 Chrome, 1 IE - you can change this configuration by supplying command line options when you start the node server, see the [Selenium Wiki](http://code.google.com/p/selenium/wiki/Grid2) for more details.
 
-Alternatively you can supply a config file in yaml format e.g.
+Alternatively you can supply a config file in json format e.g.
 
-{% highlight yaml %}
+{% highlight javascript %}
 {
 "capabilities":
         [
