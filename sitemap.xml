@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-      <loc>http://opensourcetester.co.uk/about.html</loc>
-      <lastmod>2011-06-15</lastmod>
+      <loc>http://opensourcetester.co.uk/tags.html</loc>
+      <lastmod>2011-10-01</lastmod>
   </url>
   <url>
       <loc>http://opensourcetester.co.uk/atom.xml</loc>
-      <lastmod>2011-06-13</lastmod>
+      <lastmod>2011-10-01</lastmod>
+  </url>
+  <url>
+      <loc>http://opensourcetester.co.uk/about.html</loc>
+      <lastmod>2011-10-01</lastmod>
   </url>
   <url>
       <loc>http://opensourcetester.co.uk/</loc>
-      <lastmod>2011-06-14</lastmod>
+      <lastmod>2011-10-01</lastmod>
   </url>
   <url>
-      <loc>http://opensourcetester.co.uk/tags.html</loc>
-      <lastmod>2011-09-13</lastmod>
+      <loc>http://opensourcetester.co.uk/2011/10/01/maximise-gvim</loc>
+      <lastmod>2011-10-01</lastmod>
   </url>
   <url>
       <loc>http://opensourcetester.co.uk/2011/09/13/rubygems-over-ssl-clientcert</loc>
