@@ -11,8 +11,6 @@
         <script>
             var LAST_URL = 'http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&api_key=b25b959554ed76058ac220b7b2e0a026&format=json&callback=?';
             var artists = ['miles davis','john coltrane','marvin gaye'];
-            function inCover(elem) {elem.addClass("active"); elem.text("foo"); };
-            function outCover(elem) {elem.removeClass("active"); elem.text(""); };
             $.each(artists, function(i,v) {
                 $.getJSON(LAST_URL + "&artist=" + v,
                 {
@@ -22,33 +20,39 @@
                     $.each(data.topalbums.album, function(i,item){
                         $("<img/>").attr("src", item.image[1]['#text']).load(function() {
                             if(this.height == '64' && this.width == '64' && $("#mylist ul div").length < 100) {
-                                $(this).appendTo('#mylist ul').wrap('<div class="albumimg"/>');
-                                $(this).parent().hover(inCover, outCover);
-                                //$('<div class="albumimg"/>').appendTo("#mylist > ul").css('background-image',"url(" + item.image[1]['#text'] + ")").hover(inCover, outCover);
-                                }
-                            });
+                                $(this).appendTo('#mylist ul').wrap('<div class="albumimg">foo</div>');
+                                //$(this).parent().hover(function() {$(this).addClass('active');}, function() {$(this).removeClass('active');});
+                                //$('<div class="albumimg"></div>').appendTo("#mylist > ul").css('background-image',"url(" + item.image[1]['#text'] + ")").append('<div><p class="albumText">foo</p></div>');
+                                $(this).parent().hover(
+                                function() {
+                                    $(this).children("img").fadeOut();
+                                }, 
+                                function() {
+                                    $(this).children("img").fadeIn();
+                                });
+                            }
                         });
-                    }); 
-                });
-            </script>
-            <style type="text/css">
-                #mylist {
-                    height:700px; width:700px; 
-                    position: fixed; 
-                    top: 50%;
-                    left: 50%;
-                    margin-top: -350px;
-                    margin-left: -350px;
-                }
-                div.albumimg {
-                    display: inline-block;
-                    background-repeat: no-repeat;
-                    height:64px; width:64px; 
-                }
-                .active {
-                    opacity:0.6;
-                    filter:alpha(opacity=60); /* For IE8 and earlier */
-                }
-            </style>
-        </body>
-    </html>
+                    });
+                }); 
+            });
+        </script>
+        <style type="text/css">
+            #mylist {
+                height:700px; width:700px; 
+                position: absolute; 
+                top: 50%;
+                left: 50%;
+                margin-top: -350px;
+                margin-left: -350px;
+            }
+            div.albumimg {
+                display: inline-block;
+                height:64px; width:64px; 
+            }
+            div.albumimg > img {
+                position: relative;
+                margin-top: -18px;
+            }
+        </style>
+    </body>
+</html>
