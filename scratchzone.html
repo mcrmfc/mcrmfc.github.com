@@ -16,20 +16,18 @@
                 },
                 function(data) {
                     $.each(data.topalbums.album, function(i,item){
-                        //console.log(item.artist.name);
-                        //console.log(item.name);
                         $("<img />").attr("src", item.image[1]['#text']).load(function() {
-                            if(this.height == '64' && this.width == '64' && $("#mylist div").length < 100) {
+                            if(this.height == '64' && this.width == '64' && $("#mylist div").length < 200) {
                                 $(this).appendTo('#mylist').wrap('<div class="albumimg">'+ '</div>');
-                                $(this).parent().append('<span style="opacity: 0">' + (item.artist.name).toLowerCase() + '<br/>' + (item.name).toLowerCase() + '</span>');
+                                $(this).parent().append('<div style="opacity: 0"><p>' + (item.artist.name).toLowerCase() + '</p><p>' + (item.name).toLowerCase() + '</p></div>');
                                 $(this).parent().hover(
                                 function() {
                                     $(this).children("img").fadeTo(500,0.4);
-                                    $(this).children("span").fadeTo(500,1);
+                                    $(this).children("div").fadeTo(500,1);
                                 }, 
                                 function() {
                                     $(this).children("img").fadeTo(500,1);
-                                    $(this).children("span").fadeTo(500,0);
+                                    $(this).children("div").fadeTo(500,0);
                                 });
                             }
                         });
@@ -50,19 +48,18 @@
                 position: relative;
                 height:64px; width:64px; 
             }
-            div.albumimg > img {
-            }
-            div.albumimg > span {
+            div.albumimg > div {
                 position: absolute;
                 overflow: hidden;
+                height:64px; width:64px; 
                 top: 0px;
                 left: 0px;
             }
-            span {
+            p {
                 font-family:"Courier New", monospace;
                 font-style: normal;
-                height:64px; width:64px; 
                 font-size: 10px;
+                margin: 0;
             }
 
         </style>
