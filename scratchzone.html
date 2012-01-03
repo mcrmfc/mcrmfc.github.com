@@ -42,11 +42,8 @@
             }
             div.albumimg {
                 display: inline-block;
-                float:left
-                text-align: center;
                 overflow: hidden;
-                position: relative;
-                height:64px; width:64px; 
+                position: relative; /*has to be relative position for the child absolute positioning to work*/
             }
             div.albumimg > div {
                 position: absolute;
@@ -58,7 +55,7 @@
             p {
                 font-family:"Courier New", monospace;
                 font-style: normal;
-                font-size: 10px;
+                font-size: 9px;
                 margin: 0;
             }
 

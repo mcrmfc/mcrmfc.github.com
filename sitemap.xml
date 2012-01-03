@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-      <loc>http://opensourcetester.co.uk/about.html</loc>
-      <lastmod>2011-11-24</lastmod>
-  </url>
-  <url>
-      <loc>http://opensourcetester.co.uk/atom.xml</loc>
-      <lastmod>2011-11-24</lastmod>
-  </url>
-  <url>
       <loc>http://opensourcetester.co.uk/</loc>
-      <lastmod>2011-11-24</lastmod>
+      <lastmod>2011-12-24</lastmod>
   </url>
   <url>
       <loc>http://opensourcetester.co.uk/tags.html</loc>
-      <lastmod>2011-11-24</lastmod>
+      <lastmod>2011-12-24</lastmod>
+  </url>
+  <url>
+      <loc>http://opensourcetester.co.uk/about.html</loc>
+      <lastmod>2011-12-24</lastmod>
+  </url>
+  <url>
+      <loc>http://opensourcetester.co.uk/atom.xml</loc>
+      <lastmod>2011-12-24</lastmod>
   </url>
   <url>
       <loc>http://opensourcetester.co.uk/2011/11/24/cucumber-requires-magic</loc>
