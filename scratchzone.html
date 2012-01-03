@@ -21,13 +21,15 @@
                         $("<img />").attr("src", item.image[1]['#text']).load(function() {
                             if(this.height == '64' && this.width == '64' && $("#mylist div").length < 100) {
                                 $(this).appendTo('#mylist').wrap('<div class="albumimg">'+ '</div>');
-                                $(this).parent().append('<span>foo</span>');
+                                $(this).parent().append('<span style="opacity: 0">' + (item.artist.name).toLowerCase() + '<br/>' + (item.name).toLowerCase() + '</span>');
                                 $(this).parent().hover(
                                 function() {
                                     $(this).children("img").fadeTo(500,0.4);
+                                    $(this).children("span").fadeTo(500,1);
                                 }, 
                                 function() {
                                     $(this).children("img").fadeTo(500,1);
+                                    $(this).children("span").fadeTo(500,0);
                                 });
                             }
                         });
@@ -44,6 +46,7 @@
                 display: inline-block;
                 float:left
                 text-align: center;
+                overflow: hidden;
                 position: relative;
                 height:64px; width:64px; 
             }
@@ -51,9 +54,17 @@
             }
             div.albumimg > span {
                 position: absolute;
-                top: 20px;
-                left: 20px;
+                overflow: hidden;
+                top: 0px;
+                left: 0px;
             }
+            span {
+                font-family:"Courier New", monospace;
+                font-style: normal;
+                height:64px; width:64px; 
+                font-size: 10px;
+            }
+
         </style>
     </body>
 </html>
