@@ -8,8 +8,6 @@
         <div id="mylist">
         </div>
         <script>
-            var LAST_URL = 'http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&api_key=b25b959554ed76058ac220b7b2e0a026&format=json&callback=?';
-            var LAST_ARTIST = '&artist=';
             var ITUNES_URL = 'http://itunes.apple.com/search?entity=album&limit=40&callback=?';
             var ITUNES_ARTIST = '&term=';
             var artists = ['miles davis','john coltrane','marvin gaye'];
@@ -18,9 +16,10 @@
             var aidivcount = 0;
             soundManager.url = '/swf/'; // directory where SM2 .SWFs live
             soundManager.flashVersion = 9; /*required for mp4 support in soundmanager2*/
+            soundManager.debugMode = false;
+            soundManager.debugFlash = false;
             soundManager.onready(function(){
                 // SM2 has loaded
-
                 $.each(artists, function(i,v) {
                     $.getJSON(ITUNES_URL + ITUNES_ARTIST + v,
                     {
@@ -28,34 +27,33 @@
                     },
                     function(data) {
                         $.each(data.results, function(i,item){
-                            $("<img />").attr("src", item.artworkUrl60).load(function() {
-                                if(this.height == '60' && this.width == '60' && $("#mylist div").length < 200) {
-                                    $(this).appendTo('#mylist').wrap('<div id="ai' + aidivcount++ + '" class="albumimg">'+ '</div>');
-                                    $(this).parent().append('<div style="opacity: 0"><p>' + (item.artistName).toLowerCase() + '</p><p>' + (item.collectionName).toLowerCase() + '</p></div>');
-                                    var prevUrl = "";
-                                    var myimg = $(this).parent();
-                                    $.getJSON("http://itunes.apple.com/lookup?id=" + item.collectionId + "&entity=song&callback=?", 
-                                    {format: "JSON"}, 
-                                    function(data) { 
-                                        mysounds.push(data.results[1].previewUrl);
-                                        $(myimg).hover(
-                                        function() {
-                                            var numericid = parseInt(this.id.replace(/^ai/g,""));
-                                            $(myimg).children("img").fadeTo(500,0.4);
-                                            $(myimg).children("div").fadeTo(500,1);
-                                            mySound = soundManager.createSound({
-                                                id: numericid.toString(),
-                                                url: mysounds[numericid] 
-                                            });
-                                            mySound.play();
-                                        }, 
-                                        function() {
-                                            $(myimg).children("img").fadeTo(500,1);
-                                            $(myimg).children("div").fadeTo(500,0);
-                                            mySound.stop();
+                            $('<img />').attr("src", item.artworkUrl60).load(function() {
+                                $(this).appendTo('#mylist').wrap('<div id="ai' + aidivcount++ + '" class="albumimg">'+ '</div>');
+                                $(this).parent().append('<div style="opacity: 0"><p>' + (item.artistName).toLowerCase() + '</p><p>' + (item.collectionName).toLowerCase() + '</p></div>');
+                                var $imgcontainer = $(this).parent();
+                                $.getJSON("http://itunes.apple.com/lookup?id=" + item.collectionId + "&entity=song&callback=?", 
+                                {
+                                    format: "JSON"
+                                }, 
+                                function(data) { 
+                                    mysounds.push(data.results[1].previewUrl);
+                                    $($imgcontainer).hover(
+                                    function() {
+                                        $($imgcontainer).children("img").fadeTo(500,0.4);
+                                        $($imgcontainer).children("div").fadeTo(500,1);
+                                        var numericid = parseInt(this.id.replace(/^ai/g,""));
+                                        mySound = soundManager.createSound({
+                                            id: numericid.toString(),
+                                            url: mysounds[numericid] 
                                         });
+                                        mySound.play();
+                                    }, 
+                                    function() {
+                                        $($imgcontainer).children("img").fadeTo(500,1);
+                                        $($imgcontainer).children("div").fadeTo(500,0);
+                                        mySound.stop();
                                     });
-                                }
+                                });
                             });
                         });
                     });
@@ -66,6 +64,18 @@
             #mylist {
                 width:640px; 
                 margin:0 auto; /*css standard for centering - note may not work in IE*/
+            }
+            img {
+                width: 60px;
+                height: 60px;
+            }
+            p {
+                font-family:"Courier New", monospace;
+                font-style: normal;
+                font-size: 9px;
+                margin: 0;
+                padding: 0;
+                border: 0;
             }
             div.albumimg {
                 display: inline-block;
@@ -79,13 +89,6 @@
                 top: 0px;
                 left: 0px;
             }
-            p {
-                font-family:"Courier New", monospace;
-                font-style: normal;
-                font-size: 9px;
-                margin: 0;
-            }
-
         </style>
     </body>
 </html>
