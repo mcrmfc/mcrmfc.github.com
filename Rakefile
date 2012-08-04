@@ -87,7 +87,7 @@ task :tag_cloud do
 end
 
 task :prepare_release do
-  puts 'Preparing to release site...'
+ puts 'Preparing to release site...'
   Rake::Task[:generate_tags].invoke
   Rake::Task[:tag_cloud].invoke
   Rake::Task[:generate_sitemap].invoke

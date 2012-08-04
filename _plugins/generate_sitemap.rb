@@ -13,7 +13,7 @@
 #
 # When you compile your jekyll site, this plugin will loop through the list of pages in your 
 # site, and generate an entry in sitemap.xml for each one.
-
+=begin
 require 'pathname'
 require 'jekyll'
 
@@ -52,7 +52,8 @@ module Jekyll
     #  +site+ is the global Site object.
     def generate(site)
       # Create the destination folder if necessary.
-      site_folder = site.config['destination'] + '/..'
+     p site_folder = site.config['destination'] + '/..'
+      
       unless File.directory?(site_folder)
         p = Pathname.new(site_folder)
         p.mkdir
@@ -127,3 +128,4 @@ module Jekyll
   end
   
 end
+=end
