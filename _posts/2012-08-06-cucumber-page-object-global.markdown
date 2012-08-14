@@ -85,7 +85,7 @@ Many people including myself like using Capybara and so it is worth noting how t
 
 The advantage of the first method is that you only have to do this in a 'base' class which all other objects can inherit from and obtain those methods,  the advantage of the second method is that you could potentially pass in a mock if you wanted to unit test you're page objects (though the value of doing this is debatable and could fill an entire blog post).
 
-Below is an example base page object which may help get you started, in this example @session is the only variable that couples the step definitions (or Glue) and also acts as a way of storing data that needs to persist across a test run e.g. user.
+Below is an example base class page object which may help get you started. In this example @session is an instance of an object which acts as a container for our current page and is the only variable that couples the step definitions (or Glue) it also acts as a way of storing data that needs to persist across a test run e.g. user.
 
 {% highlight ruby %}
 
@@ -157,3 +157,10 @@ Conclusions
 ------------
 
 Adding Page Objects and following the MGF pattern will help you combat the 'Global Scope' problem that can hit on large projects using Cucumber to drive automated tests.  It will mean changes can be isolated to single points in the code and add logical structure which will reduce the maintenance burden.
+
+Update...
+------------
+
+I have just finshed reading some excellent posts on [Nathaniel Ritmeyer's blog](http://www.natontesting.com/) which elaborate on how we can [manage page objects](http://www.natontesting.com/2012/05/31/managing-your-page-objects/) thus tackling the issues of step coupling. He also maintains [SitePrism](http://www.natontesting.com/2012/07/30/siteprism-1-3/) which looks like an interesting dsl for page objects (and removes the need for the ugly constants I have in the examples above).
+
+Anyway I think I will follow up this post in a couple of months and elaborate on the issues around coupling in our glue code and how best we can minimize what is one of the major problems with Cucumber.
