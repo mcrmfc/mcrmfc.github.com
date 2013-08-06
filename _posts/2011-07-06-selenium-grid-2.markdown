@@ -26,7 +26,7 @@ The two most useful sources of information I have found thus far are:
 1. [This](http://code.google.com/p/selenium/wiki/Grid2) page on the [Selenium Wiki](http://code.google.com/p/selenium/wiki)
 2. This video from the [Selenium Conference](http://www.seleniumconf.com/videos) of a presentation by the authors...
 
-<object width="640" height="385"><param name="movie" value="http://www.youtube.com/v/rjc51R8nI2Y&color1=0xb1b1b1&color2=0xd0d0d0&hl=de_DE&feature=player_embedded&fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowScriptAccess" value="always"></param><embed src="http://www.youtube.com/v/rjc51R8nI2Y&color1=0xb1b1b1&color2=0xd0d0d0&hl=de_DE&feature=player_embedded&fs=1" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="640" height="385"></embed></object>
+<object width="640" height="385"><param name="movie" value="http://www.youtube.com/v/rjc51R8nI2Y&amp;color1=0xb1b1b1&amp;color2=0xd0d0d0&amp;hl=de_DE&amp;feature=player_embedded&amp;fs=1"></param><param name="allowFullScreen" value="true"></param><param name="allowScriptAccess" value="always"></param><embed src="http://www.youtube.com/v/rjc51R8nI2Y&amp;color1=0xb1b1b1&amp;color2=0xd0d0d0&amp;hl=de_DE&amp;feature=player_embedded&amp;fs=1" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="640" height="385"></embed></object>
 
 Pretty much everything you need to get started is on the [Wiki](http://code.google.com/p/selenium/wiki/Grid2) page but below are a few things that might be useful to clarify in order to get the 'out of the box' behaviour working.
 
