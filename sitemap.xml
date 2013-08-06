@@ -2,19 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
       <loc>http://opensourcetester.co.uk/about.html</loc>
-      <lastmod>2012-11-24</lastmod>
+      <lastmod>2013-07-22</lastmod>
   </url>
   <url>
       <loc>http://opensourcetester.co.uk/atom.xml</loc>
-      <lastmod>2012-11-24</lastmod>
+      <lastmod>2013-07-22</lastmod>
   </url>
   <url>
       <loc>http://opensourcetester.co.uk/</loc>
-      <lastmod>2012-11-24</lastmod>
+      <lastmod>2013-07-22</lastmod>
   </url>
   <url>
       <loc>http://opensourcetester.co.uk/tags.html</loc>
-      <lastmod>2013-06-28</lastmod>
+      <lastmod>2013-08-06</lastmod>
+  </url>
+  <url>
+      <loc>http://opensourcetester.co.uk/2013/08/06/erlangr16-osx</loc>
+      <lastmod>2013-08-06</lastmod>
   </url>
   <url>
       <loc>http://opensourcetester.co.uk/2013/06/28/jenkins-windows-ssh</loc>

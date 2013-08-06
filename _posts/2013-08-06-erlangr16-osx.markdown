@@ -1,0 +1,92 @@
+---
+layout: post
+title: Building Erlang-r16 and Elixir on OSX using HomeBrew
+author: Matt Robbins
+categories:
+- erlang
+- elixir
+- osx
+- homebrew
+---
+
+A quick one just in case anybody is struggling to build Erlang-r16 on OSX. I wanted to play around with [Elixir](http://elixir-lang.org) the latest and slightly more offbeat (dare I say hipster) functional language to hit the big time, Elixir runs on the Erlang VM and you need Erlang-r16 to build and run Elixir.
+
+To install Erlang-r16 on OSX using [homebrew](http://brew.sh/) you in theory just need to add the [homebrew-versions](https://github.com/Homebrew/homebrew-versions) tap and brew install:
+
+{% highlight console %}
+brew tap homebrew/versions
+brew install erlang-r16
+{% endhighlight %}
+
+However I got compile errors when running the install (note I think this may be even specific to the latest MacBooks with the new Haswell chips).
+
+{% highlight console %}
+erl -noshell -noinput -run prepare_templates gen_asn1ct_rtt \
+           asn1rtt_check.beam asn1rtt_ext.beam asn1rtt_per_common.beam asn1rtt_real_common.beam asn1rtt_ber.beam asn1rtt_per.beam asn1rtt_uper.beam >asn1ct_rtt.erl
+erlc -W  +debug_info -I/private/tmp/erlang-r16-HFuS/otp-OTP_R16B/lib/stdlib -Werror -o../ebin asn1ct_rtt.erl
+Running Erlang
+asn1ct_rtt.erl:1: syntax error before: Running
+asn1ct_rtt.erl:14: no module definition
+make[2]: *** [../ebin/asn1ct_rtt.beam] Error 1
+make[1]: *** [opt] Error 2
+make: *** [secondary_bootstrap_build] Error 2
+{% endhighlight %}
+
+The reason for this is that newer Macs with the latest versions of X-Code use [LLVM-GCC](http://llvm.org/releases/2.9/docs/CommandGuide/html/llvmgcc.html) and not [GNU GCC](http://gcc.gnu.org/).  Homebrew now attempts to build with LLVM by default which is probably sensible as this is the platform compiler, however it is likely for a fair number of packages this won't work as their builds have not been tested on LLVM.  This seems to be the case with the latest Erlang versions.
+
+The additional problem at the moment seems to be that the Homebrew project is currently changing the way they handle the situation around cross compiling with different C compilers.
+
+You can use the [homebrew-versions](https://github.com/Homebrew/homebrew-versions) tap to install a specific gcc e.g.
+
+{% highlight console %}
+brew tap homebrew/versions
+brew install gcc48
+{% endhighlight %}
+
+However in Homebrew 0.9.4 at least there seems to be no way of telling it to use these GCC versions when building. You can specify `--use-gcc` or set the HOMEBREW_CC environment variable but neither worked for me.  [This issue](https://github.com/Homebrew/homebrew-versions/issues/142) got me thinking as the only success people had seemed to have is where they had the apple-gcc42 compiler.
+
+When you do `export HOMEBREW_CC=gcc` Homebrew seems to be hardcoded to look for the apple-gcc42 package and not any from the homebrew-versions tap.  I think [this pull request](https://github.com/mxcl/homebrew/pull/20251) will make this integration smoother.
+
+For the time being then, to get a working Elixir and Erlang do the following:
+
+{% highlight console %}
+export HOMEBREW_CC=gcc
+brew update
+brew tap homebrew/dupes
+brew install apple-gcc42
+brew install erlang-r16
+brew install elixir
+{% endhighlight %}
+
+You can probably avoid exporting HOMEBREW_CC and just use (but I haven't tested this method):
+
+{% highlight console %}
+brew update
+brew tap homebrew/dupes
+brew install apple-gcc42
+brew install --use-gcc erlang-r16
+brew install elixir
+{% endhighlight %}
+
+
+This gets the 4.2 GCC that currently Homebrew is hardcoded to look for, indeed you can see this if you run `brew --config` as it now lists a GCC-4.2 value which would have been absent before:
+
+{% highlight console %}
+HOMEBREW_VERSION: 0.9.4
+ORIGIN: https://github.com/mxcl/homebrew
+HEAD: 6b5b347332f7fdad35a5deab79fa71018e02a2b4
+HOMEBREW_PREFIX: /usr/local
+HOMEBREW_CELLAR: /usr/local/Cellar
+CPU: quad-core 64-bit haswell
+OS X: 10.8.4-x86_64
+Xcode: 4.6.3
+CLT: 4.6.0.0.1.1365549073
+GCC-4.2: build 5666
+LLVM-GCC: build 2336
+Clang: 4.2 build 425
+X11: N/A
+System Ruby: 1.8.7-358
+Perl: /usr/bin/perl
+Python: /usr/bin/python
+Ruby: /Users/matthewrobbins/.rbenv/shims/ruby
+{% endhighlight %}
