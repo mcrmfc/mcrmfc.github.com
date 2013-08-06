@@ -14,6 +14,7 @@
 # When you compile your jekyll site, this plugin will loop through the list of pages in your 
 # site, and generate an entry in sitemap.xml for each one.
 
+=begin
 require 'pathname'
 require 'jekyll'
 module Jekyll
@@ -127,3 +128,4 @@ module Jekyll
   end
   
 end
+=end
