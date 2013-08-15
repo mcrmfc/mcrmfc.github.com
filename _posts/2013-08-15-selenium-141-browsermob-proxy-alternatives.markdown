@@ -9,10 +9,10 @@ categories:
 - browsermob-proxy
 ---
 
-The Story of Selenium Issue 141
+Selenium Issue 141
 -------------------------------
 
-The long tale of [Selenium Issue 141](https://code.google.com/p/selenium/issues/detail?id=141) is not worth recounting here as it has been covered in depth by Selenium core committers [Simon Stewart](http://blog.rocketpoweredjetpants.com/2013/06/the-unix-philosophy-webdriver-and-http.html) and [David Burns](http://www.theautomatedtester.co.uk/blog/2013/the-tale-of-selenium-bug-141.html).
+The long story of [Selenium Issue 141](https://code.google.com/p/selenium/issues/detail?id=141) is not worth recounting here as it has been covered in depth by Selenium core committers [Simon Stewart](http://blog.rocketpoweredjetpants.com/2013/06/the-unix-philosophy-webdriver-and-http.html) and [David Burns](http://www.theautomatedtester.co.uk/blog/2013/the-tale-of-selenium-bug-141.html).
 
 In a nutshell issue 141 is a hotly contested debate as to whether Selenium-Webdriver should provide public API for querying HTTP status codes and response headers.
 
