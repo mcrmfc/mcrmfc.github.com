@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'bundler/setup'
-require 'ftools'
+require 'fileutils'
 require 'jekyll'
 $: << File.dirname( __FILE__)
 require '_plugins/generate_sitemap'
