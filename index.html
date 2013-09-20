@@ -8,10 +8,10 @@ title: An Open Source Testing Blog
     <div class="post-inner">
         <h2><a href="{{ post.url }}">{% if post.display-title %}{{ post.display-title }} {% else %}{{ post.title }}{% endif %}</a></h2>
         <div class="meta">
-            <span class="date">{{ post.date | date_to_string }}</span>
-            | <span class="author">By {{ post.author }}</span>
-            | <span class="comments"><a href="{{ post.url }}#disqus_thread">Comments</a></span>
-            | <span class="tags">
+          <span class="date">{{ post.date | date_to_string }}</span><span class='meta-divider'>
+            | </span><span class="author">By {{ post.author }}</span><span class='meta-divider'>
+            | </span><span class="comments"><a href="{{ post.url }}#disqus_thread">Comments</a></span><span class='meta-divider'>
+            | </span><span class="tags">
                 <img alt="Tags" class="icon" src="/images/tag.gif" />
                 {% for category in post.categories %}
                 <a href="/tags.html#{{ category }}">{{ category }}</a>
@@ -24,30 +24,3 @@ title: An Open Source Testing Blog
     </div>
     {% endfor %}
 </div>
-
-{% if paginator.previous_page %}
-<div class="prev_next">
-    {% if paginator.previous_page == 1 %}
-    &larr; <a class="previous" href="/">previous</a>
-    {% else %}
-    &larr; <a class="previous" href="/page{{ paginator.previous_page}}">previous</a> 
-    {% endif %}
-</div>
-{% endif %}
-{% if paginator.total_pages > 1 %}
-<div class="prev_next">
-    {% for i in (1..paginator.total_pages) %}
-    {% if i == paginator.page %}
-    <strong>{{ i }}</strong>
-    {% elsif i != 1 %}
-    <a href="/page{{ i }}">{{ i }}</a>
-    {% else %}
-    <a href="/">1</a>
-    {% endif %}
-    {% endfor %}
-    {% if paginator.next_page %}
-    <a class="next" href="/page{{ paginator.next_page}}">next</a> &rarr;
-    {% endif %}
-</div>
-{% endif %}
-
