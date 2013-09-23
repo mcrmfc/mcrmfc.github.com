@@ -1,7 +1,7 @@
 <div class="meta">
-    {{ page.date | date_to_string }} |
-    <span class="author">Booy {{ page.author }}</span> |
-    <span class="tags">
+  {{ page.date | date_to_string }} <span class="meta-divider"> |
+  </span><span class="author">By {{ page.author }}</span><span class="meta-divider"> |
+  </span><span class="tags">
         <img alt="Tags" class="icon" src="/images/tag.gif" />
         {% for category in page.categories %}
         <a href="/tags.html#{{ category }}">{{ category }}</a>

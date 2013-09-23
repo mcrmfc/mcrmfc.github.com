@@ -34,6 +34,7 @@ div h2.post { font-size: 1.75em; font-weight: bold; margin: 0; padding: 0; color
 div#post h2 { font-size: 1.75em; font-weight: bold; padding: 0; color: #666 }
 #related h2{ font-size: 1.75em; font-weight: bold; padding: 0; color: #666 }
 .posts code {font-family: monospace;}
+#post code {font-family: monospace;}
 
 #post img, .preview img { border: 1px solid #ddd; padding: 1px }
 
