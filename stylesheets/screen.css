@@ -35,7 +35,8 @@ h2.post a { text-decoration: none }
 div h2.post { margin: 0; }
 code {font-family: monospace;}
 
-#post img, .preview img { border: 1px solid #ddd; padding: 1px }
+#post img, .preview img {  max-width: 100%; height: auto; border: 1px solid #ddd; padding: 1px }
+#post embed, .preview embed {  max-width: 100%; }
 
 div.meta { color: #666; font-size: 90% }
 div.meta span.tags { margin-left: 0 }
