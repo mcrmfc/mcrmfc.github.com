@@ -4,9 +4,10 @@ title: From zero to tested with Centos7, Chrome and Selenium
 author: Matt Robbins
 categories:
 - testing
-- webdriver
+- centos
 - selenium
-- browsermob-proxy
+- chrome
+- headless
 ---
 
 If you are restricted to [Centos](http://www.centos.org/) in your CI environments and you need to run browser tests previous solutions include running in PhantomJS, an old version of Firefox under Xvfb or farming out to a Selenium Grid.
