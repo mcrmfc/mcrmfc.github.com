@@ -18,10 +18,10 @@ _2012 - present_ : Continuous Delivery...UI tests broken, no deployments...now w
 
 So hopefully you have arrived at stage 3 and have done the following to ensure your UI tests are as resilient as possible:
 
-* Followed Martin Fowler's [test pyramid](http://martinfowler.com/bliki/TestPyramid.html) and not implemented every conceivable system test via Selenium
-* Implemented sane retry logic to find UI elements
-* Isolated your UI using stub backends to guard against unexpected data
-* Added spoonfuls of helpful debug logging to highlight issues
+1.  Followed Martin Fowler's [test pyramid](http://martinfowler.com/bliki/TestPyramid.html) and not implemented every conceivable system test via Selenium
+2.  Implemented sane retry logic to find UI elements
+3.  Isolated your UI using stub backends to guard against unexpected data
+4.  Added spoonfuls of helpful debug logging to highlight issues
 
 But your tests still appear now and again be nondeterministic and people are getting frustrated.
 
