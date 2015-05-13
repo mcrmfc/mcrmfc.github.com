@@ -23,11 +23,13 @@ So hopefully you have arrived at stage 3 and have done the following to ensure y
 3.  Isolated your UI using stub backends to guard against unexpected data
 4.  Added spoonfuls of helpful debug logging to highlight issues
 
-But your tests still appear now and again be nondeterministic and people are getting frustrated.
+But perhaps a couple of your tests still appear now and again be nondeterministic and people are getting frustrated.
 
 This can happen, UI testing is hard and no matter how much you defend against it peculiarities of the runtime environment can conspire against you.
 
 In this instance it might be handy to have 'one more go' when you get some failures and Cucumber's rerun formatter allows this.
+
+Caveat - generally I would say a nondeterminstic test should either be fixed for good or deleted however sometimes the world is just not that perfect, maybe for example you aren't able to improve underlying infrastrucre issues etc etc. Hence this may still be a valid course of action.
 
 The Example
 -----------
