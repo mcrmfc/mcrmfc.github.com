@@ -1,8 +1,9 @@
 permalink:   /:year/:month/:day/:title
 lsi:         false
-pygments:    true
+highligher:  'pygments'
 paginate:    10
-auto:        false
+gems:
+  - jekyll-sitemap
 exclude:
   - bin
   - vendor 

@@ -3,17 +3,6 @@ require 'bundler/setup'
 require 'fileutils'
 require 'jekyll'
 $: << File.dirname( __FILE__)
-require '_plugins/generate_sitemap'
-
-task :generate_sitemap do
-  puts 'Generating sitemap..'
-  include Jekyll::Filters
-  options = Jekyll.configuration({})
-  site = Jekyll::Site.new(options)
-  site.read
-  Jekyll::SitemapGenerator.new.generate(site)
-  puts 'Done.'
-end
 
 task :generate_tags do
   puts 'Generating tags...'
@@ -90,7 +79,6 @@ task :prepare_release do
  puts 'Preparing to release site...'
   Rake::Task[:generate_tags].invoke
   Rake::Task[:tag_cloud].invoke
-  Rake::Task[:generate_sitemap].invoke
 end
 
 

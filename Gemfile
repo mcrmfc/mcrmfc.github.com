@@ -1,5 +1,6 @@
 source "http://rubygems.org"
 
-gem "jekyll", "=1.1.2"
+gem "jekyll"
 gem "RedCloth", ">4.2.7"
 gem "rake"
+gem 'jekyll-sitemap'
