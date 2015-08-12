@@ -100,4 +100,6 @@ puts driver.execute_async_script(
 driver.quit
 {% endhighlight %}
 
+As Johannes points out in his [blog post](http://blog.jthoenes.net/2013/08/16/waiting-for-a-javascript-event-with-seleniumcapybara/) in running such code you have the potential to affect the behaviour of the page under test. Double check that the page functions as expected after your code has executed and be aware of issues such as an event not bubbling correctly up the DOM.
+
 Hopefully this has given some more insight into executing asynchronous JavaScript from Selenium, certainly not something you would want to do unless you really had to but worth knowing about.
